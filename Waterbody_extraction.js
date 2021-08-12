@@ -26,7 +26,7 @@ Map.addLayer(R1.first(),{bands: 'VH_Filtered',min: -20, max: 0}, 'Filtered SAR i
 //Classification of Waterbody (flood)
 var classify_Water = function(img) {
   var vh = img.select('VH_Filtered')
-  var water = vh.lt(-14.5).rename('Water')  //Identify all pixels below threshold and keep them equal to 1. All other pixels set to 0
+  var water = vh.lt(-15.5).rename('Water')  //Identify all pixels below threshold and keep them equal to 1. All other pixels set to 0
   water = water.updateMask(water) //Remove all pixels equal to 0
   return img.addBands(water)  //Return image with added classified water band
 }
